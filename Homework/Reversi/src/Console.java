@@ -15,15 +15,15 @@ public class Console {
         // Создаём полосу-разделитель нужного размера.
         StringBuilder line = new StringBuilder();
         line.append('\t');
-        line.append("--------".repeat(Board.size));
+        line.append("--------".repeat(Board.SIZE));
         System.out.print("\t");
         // Подписываем номера столбцов.
-        for (int i = 0; i < Board.size; ++i) {
+        for (int i = 0; i < Board.SIZE; ++i) {
             System.out.print("\t" + (i + 1) + "\t");
         }
         System.out.println();
         // Проходимся по всем строкам поля.
-        for (int i = 0; i < Board.size; ++i) {
+        for (int i = 0; i < Board.SIZE; ++i) {
             System.out.println(line);
             StringBuilder sb = new StringBuilder();
             sb.append(i + 1);

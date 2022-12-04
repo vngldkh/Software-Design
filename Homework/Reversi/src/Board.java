@@ -14,14 +14,14 @@ public class Board implements Cloneable {
     /**
      * Размер игрового поля.
      */
-    public static final int size = 8;
+    public static final int SIZE = 8;
 
     /**
      * Беспараметрический онструктор игрового поля.
      * Создаётся пустой массив, задаётся изначальное положение фишек.
      */
     public Board() {
-        field = new int[size][size];
+        field = new int[SIZE][SIZE];
         field[3][3] = field[4][4] = 1;
         field[3][4] = field[4][3] = -1;
     }
@@ -59,7 +59,7 @@ public class Board implements Cloneable {
         ArrayList<Integer> viableRoutes = new ArrayList<>();
         // Максимальное число шагов из данной клетки.
         int max_steps = Math.max(Math.max(coords.getRow(), coords.getColumn()),
-                                 Math.max(size - coords.getRow(), size - coords.getColumn()));
+                                 Math.max(SIZE - coords.getRow(), SIZE - coords.getColumn()));
 
         int routesCount = 8;
         // Массив с кол-вом замыкаемых клеток для каждого из направлений.
@@ -136,7 +136,7 @@ public class Board implements Cloneable {
         }
         int opposite = -player;
         int max_steps = Math.max(Math.max(coords.getRow(), coords.getColumn()),
-                Math.max(size - coords.getRow(), size - coords.getColumn()));
+                Math.max(SIZE - coords.getRow(), SIZE - coords.getColumn()));
         // Идём в каждом из допустимых направлений, перекрашиваем фишки.
         for (int step = 0; step < max_steps; ++step) {
             for (int direction = 0; direction < viableRoutes.size(); ++direction) {
@@ -162,8 +162,8 @@ public class Board implements Cloneable {
         ArrayList<CellInfo> turns = new ArrayList<>();
         // Оцениваем каждую клетку.
         // Если она замыкает хотя бы одну клетку противника, сохраняем.
-        for (int i = 0; i < size; ++i) {
-            for (int j = 0; j < size; ++j) {
+        for (int i = 0; i < SIZE; ++i) {
+            for (int j = 0; j < SIZE; ++j) {
                 if (field[i][j] == 0) {
                     CellInfo info = estimate(new Coords(i, j), player);
                     if (!info.viableRoutes.isEmpty()) {
@@ -181,8 +181,8 @@ public class Board implements Cloneable {
      */
     @Override
     public Board clone() {
-        int[][] newField = new int[this.size][this.size];
-        for (int i = 0; i < this.size; ++i) {
+        int[][] newField = new int[this.SIZE][this.SIZE];
+        for (int i = 0; i < this.SIZE; ++i) {
             newField[i] = this.getField()[i].clone();
         }
         return new Board(newField);

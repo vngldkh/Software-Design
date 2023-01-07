@@ -4,13 +4,11 @@ import java.util.HashSet;
 
 final class Vertex {
     final String name;
-    private final String content;
     private final HashSet<Vertex> ancestors;
     private final HashSet<Vertex> children;
 
-    Vertex(String name, String content) {
+    Vertex(String name) {
         this.name = name;
-        this.content = content;
         children = new HashSet<>();
         ancestors = new HashSet<>();
     }

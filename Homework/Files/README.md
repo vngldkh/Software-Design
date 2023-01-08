@@ -13,15 +13,21 @@
 
 **Введённая корневая папка не существует**
 
-```There's no such directory!```
+```
+There's no such directory!
+```
 
 **К одному из файлов в папке (или её дочерньих) нет доступа**
 
-```You don't have access to files or directories there!```
+```
+You don't have access to files or directories there!
+```
 
 **Полученный граф зациклился**
 
-```The graph is cycled!```
+```
+The graph is cycled!
+```
 
 **В ходе работы появилась одна из выше перечисленных ошибок**
 ```

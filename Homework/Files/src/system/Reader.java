@@ -27,10 +27,10 @@ public class Reader {
         try {
             listAllFiles(initDirectory, files);
         } catch (IOException e) {
-            // Сообщение об ошибке.
+            ExceptionMessages.Message(1);
             correct = false;
         } catch (NullPointerException e) {
-            // Сообщение об ошибке.
+            ExceptionMessages.Message(0);
             correct = false;
         }
         return files;

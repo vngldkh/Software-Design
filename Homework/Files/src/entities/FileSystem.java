@@ -1,5 +1,6 @@
 package entities;
 
+import system.ExceptionMessages;
 import system.Reader;
 
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class FileSystem {
                 }
                 correct = !graph.Cycled();
                 if (!correct) {
-                    // Сообщение об ошибке.
+                    ExceptionMessages.Message(2);
                     return;
                 }
             }

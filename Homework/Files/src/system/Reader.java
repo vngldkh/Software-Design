@@ -9,23 +9,44 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+/***
+ * Class read the information of the file system.
+ */
 public class Reader {
+    /***
+     * Root folder.
+     */
     private final File initDirectory;
+    /***
+     * Shows whether the read file system is correct.
+     */
     private boolean correct;
 
+    /***
+     * Constructor of the reader class object.
+     * @param initDirectory Path to the file system's root folder.
+     */
     public Reader(String initDirectory) {
         this.initDirectory = new File(initDirectory);
         correct = this.initDirectory.exists();
     }
 
+    /***
+     * Inform the 'external world' about the read file system state.
+     * @return Read file system state.
+     */
     public boolean IsCorrect() {
         return correct;
     }
 
-    public ArrayList<entities.FileInfo> listAllFiles() {
+    /***
+     * List all files from the root directory and its subdirectories.
+     * @return ArrayList of the read files.
+     */
+    public ArrayList<entities.FileInfo> ListAllFiles() {
         ArrayList<entities.FileInfo> files = new ArrayList<>();
         try {
-            listAllFiles(initDirectory, files);
+            ListAllFiles(initDirectory, files);
         } catch (IOException e) {
             ExceptionMessages.Message(1);
             correct = false;
@@ -36,13 +57,23 @@ public class Reader {
         return files;
     }
 
+    /***
+     * Pattern for 'dependency line'.
+     */
     static final Pattern pattern = Pattern.compile("^[ \\t\\n]*require ‘(.*)’[ \\t\\n]*$");
 
-    private void listAllFiles(File currentFile, ArrayList<entities.FileInfo> list)
+    /***
+     * Recursive method that lists all files from the current directory.
+     * @param currentFile Current file or directory.
+     * @param list Listed files.
+     * @throws NullPointerException Possible only if there's no root folder.
+     * @throws IOException Throws if user has no permission.
+     */
+    private void ListAllFiles(File currentFile, ArrayList<entities.FileInfo> list)
             throws NullPointerException, IOException {
         for (File file : currentFile.listFiles()) {
             if (file.isDirectory()) {
-                listAllFiles(file, list);
+                ListAllFiles(file, list);
             } else {
                 StringBuilder content = new StringBuilder();
                 ArrayList<String> dependencies = new ArrayList<>();

@@ -5,12 +5,13 @@ import system.Reader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class FileSystem {
     private final Reader reader;
     private final Graph graph;
-    private ArrayList<String> order;
+    private LinkedList<String> order;
     private final HashMap<String, FileInfo> filesDictionary;
     private boolean correct;
 
@@ -31,7 +32,7 @@ public class FileSystem {
     }
 
     private void ListAllFiles() {
-        var files = reader.listAllFiles();
+        var files = reader.ListAllFiles();
         correct = reader.IsCorrect();
         if (!correct) {
             return;
@@ -46,7 +47,7 @@ public class FileSystem {
             graph.Add(pair.getKey());
             for (String child : pair.getValue().dependencies()) {
                 if (filesDictionary.containsKey(child)) {
-                    graph.Add(pair.getKey(), child);
+                    graph.Add(child, pair.getKey());
                 }
                 correct = !graph.Cycled();
                 if (!correct) {
@@ -65,7 +66,7 @@ public class FileSystem {
         return text.toString();
     }
 
-    public ArrayList<String> GetOrder() {
+    public LinkedList<String> GetOrder() {
         return order;
     }
 

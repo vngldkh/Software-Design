@@ -17,13 +17,13 @@ final class Vertex {
         updateAncestors(this, parent);
     }
 
-    private void updateAncestors(Vertex current, Vertex ancestor) {
+    private static void updateAncestors(Vertex current, Vertex ancestor) {
         current.ancestors.addAll(ancestor.ancestors);
         current.ancestors.add(ancestor);
-        if (children.isEmpty()) {
+        if (current.children.isEmpty()) {
             return;
         }
-        for (var child : children) {
+        for (var child : current.children) {
             updateAncestors(child, ancestor);
         }
     }

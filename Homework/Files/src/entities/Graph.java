@@ -41,8 +41,8 @@ public class Graph {
         return cycled;
     }
 
-    public ArrayList<String> Order() {
-        ArrayList<String> order = new ArrayList<>();
+    public LinkedList<String> Order() {
+        LinkedList<String> order = new LinkedList<>();
         HashSet<String> visited = new HashSet<>();
         LinkedList<String> toVisit = new LinkedList<>();
         for (var vertex : vertexPool.entrySet()) {
@@ -50,22 +50,30 @@ public class Graph {
                 toVisit.add(vertex.getKey());
             }
         }
-        while (!toVisit.isEmpty()) {
-            var currentVertex = toVisit.getFirst();
-            toVisit.removeFirst();
-            if (visited.contains(currentVertex)) {
-                continue;
-            }
-            visited.add(currentVertex);
-            order.add(currentVertex);
-            for (var child : vertexPool.get(currentVertex).GetChildren()) {
-                if (!visited.contains(child.name)) {
-                    toVisit.add(child.name);
-                }
-            }
-        }
-        Reverse(order);
+        BFS(order, visited, toVisit);
         return order;
+    }
+
+    private void BFS(LinkedList<String> order, HashSet<String> visited, LinkedList<String> toVisit) {
+        if (toVisit.isEmpty()) {
+            return;
+        }
+        var currentVertex = toVisit.getFirst();
+        toVisit.removeFirst();
+        visited.add(currentVertex);
+        for (var child : vertexPool.get(currentVertex).GetChildren()) {
+            if (!visited.contains(child.name)) {
+                if (toVisit.contains(child.name)) {
+                    toVisit.removeFirstOccurrence(child.name);
+                }
+            } else {
+                order.removeFirstOccurrence(child.name);
+                visited.remove(child.name);
+            }
+            toVisit.add(child.name);
+        }
+        order.addLast(currentVertex);
+        BFS(order, visited, toVisit);
     }
 
     private void Reverse(ArrayList<String> list) {

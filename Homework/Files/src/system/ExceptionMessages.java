@@ -1,19 +1,21 @@
 package system;
 
 public class ExceptionMessages {
-    private static final String noDirectory = "There's no such directory!\n";
-    private static final String noAccess = "You don't have access to files or directories there!\n";
-    private static final String cycled = "The graph is cycled!\n";
-    private static final String unexpected = "Unexpected exception occurred!\n";
+    private static final String NO_DIRECTORY = "There's no such directory!\n";
+    private static final String NO_ACCESS = "You don't have an access to files or directories there!\n";
+    private static final String CYCLED = "The graph is cycled!\n";
+    private static final String UNEXPECTED = "Unexpected exception occurred!\n";
+    private static final String INCORRECT = "The file system is incorrect!\nImpossible to display!\n";
 
     public static void Message(int code) {
         String message;
         switch (code) {
-            case 0 -> message = noDirectory;
-            case 1 -> message = noAccess;
-            case 2 -> message = cycled;
-            default -> message = unexpected;
+            case 0 -> message = NO_DIRECTORY;
+            case 1 -> message = NO_ACCESS;
+            case 2 -> message = CYCLED;
+            case 3 -> message = INCORRECT;
+            default -> message = UNEXPECTED;
         }
-        System.out.print(message);
+        System.out.println(message);
     }
 }

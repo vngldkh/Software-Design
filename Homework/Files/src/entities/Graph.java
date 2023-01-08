@@ -1,8 +1,6 @@
 package entities;
 
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 
 public class Graph {
     private final HashMap<String, Vertex> vertexPool;
@@ -11,6 +9,13 @@ public class Graph {
     public Graph() {
         vertexPool = new HashMap<>();
         cycled = false;
+    }
+
+    public void Add(String vertexName) {
+        if (vertexPool.containsKey(vertexName)) {
+            return;
+        }
+        vertexPool.put(vertexName, new Vertex(vertexName));
     }
 
     public void Add(String from, String to) {
@@ -38,33 +43,29 @@ public class Graph {
 
     public ArrayList<String> Order() {
         ArrayList<String> order = new ArrayList<>();
-        HashSet<String> toVisit = new HashSet<>(vertexPool.keySet());
+        HashSet<String> visited = new HashSet<>();
+        LinkedList<String> toVisit = new LinkedList<>();
+        for (var vertex : vertexPool.entrySet()) {
+            if (!vertex.getValue().HasAncestors()) {
+                toVisit.add(vertex.getKey());
+            }
+        }
         while (!toVisit.isEmpty()) {
-            String head = null;
-            for (String vertex : toVisit) {
-                if (!vertexPool.get(vertex).HasAncestors()) {
-                    head = vertex;
-                    break;
+            var currentVertex = toVisit.getFirst();
+            toVisit.removeFirst();
+            if (visited.contains(currentVertex)) {
+                continue;
+            }
+            visited.add(currentVertex);
+            order.add(currentVertex);
+            for (var child : vertexPool.get(currentVertex).GetChildren()) {
+                if (!visited.contains(child.name)) {
+                    toVisit.add(child.name);
                 }
             }
-            AddFiles(head, order, toVisit);
         }
         Reverse(order);
         return order;
-    }
-
-    private void AddFiles(String current, ArrayList<String> order, HashSet<String> pool) {
-        if (!pool.contains(current)) {
-            return;
-        }
-        order.add(current);
-        pool.remove(current);
-        if (!vertexPool.get(current).HasChildren()) {
-            return;
-        }
-        for (var vertex : vertexPool.get(current).GetChildren()) {
-            AddFiles(vertex.name, order, pool);
-        }
     }
 
     private void Reverse(ArrayList<String> list) {

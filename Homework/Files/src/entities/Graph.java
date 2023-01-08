@@ -2,6 +2,7 @@ package entities;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Graph {
     private final HashMap<String, Vertex> vertexPool;
@@ -36,7 +37,39 @@ public class Graph {
     }
 
     public ArrayList<String> Order() {
-        ArrayList<String> answer = new ArrayList<>();
-        return answer;
+        ArrayList<String> order = new ArrayList<>();
+        HashSet<String> toVisit = new HashSet<>(vertexPool.keySet());
+        while (!toVisit.isEmpty()) {
+            String head = null;
+            for (String vertex : toVisit) {
+                if (!vertexPool.get(vertex).HasAncestors()) {
+                    head = vertex;
+                    break;
+                }
+            }
+            AddFiles(head, order, toVisit);
+        }
+        Reverse(order);
+        return order;
+    }
+
+    private void AddFiles(String current, ArrayList<String> order, HashSet<String> pool) {
+        if (!pool.contains(current)) {
+            return;
+        }
+        order.add(current);
+        pool.remove(current);
+        if (!vertexPool.get(current).HasChildren()) {
+            return;
+        }
+        for (var vertex : vertexPool.get(current).GetChildren()) {
+            AddFiles(vertex.name, order, pool);
+        }
+    }
+
+    private void Reverse(ArrayList<String> list) {
+        for(int i = 0, j = list.size() - 1; i < j; i++) {
+            list.add(i, list.remove(j));
+        }
     }
 }

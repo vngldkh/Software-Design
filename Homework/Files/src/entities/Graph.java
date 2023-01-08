@@ -2,15 +2,31 @@ package entities;
 
 import java.util.*;
 
+/***
+ * Class of the graph.
+ */
 public class Graph {
+    /***
+     * Pool of vertexes matching the name of the vertex and its object of Vertex class.
+     */
     private final HashMap<String, Vertex> vertexPool;
+    /***
+     * Inform whether the graph is cycled.
+     */
     private boolean cycled;
 
+    /***
+     * Constructor.
+     */
     public Graph() {
         vertexPool = new HashMap<>();
         cycled = false;
     }
 
+    /***
+     * Add vertex to the pool.
+     * @param vertexName Name of the vertex.
+     */
     public void Add(String vertexName) {
         if (vertexPool.containsKey(vertexName)) {
             return;
@@ -18,6 +34,11 @@ public class Graph {
         vertexPool.put(vertexName, new Vertex(vertexName));
     }
 
+    /***
+     * Add graph edge.
+     * @param from Beginning of the edge.
+     * @param to End of the edge.
+     */
     public void Add(String from, String to) {
         if (cycled) {
             return;
@@ -37,10 +58,18 @@ public class Graph {
         destination.AddParent(departure);
     }
 
+    /***
+     * Inform the 'external world' whether the graph is cycled.
+     * @return 'true' if the graph is cycled and 'false' otherwise.
+     */
     public boolean Cycled() {
         return cycled;
     }
 
+    /***
+     * With modified BFS sets up ordered list of the files in the system.
+     * @return Ordered list of the files in the system.
+     */
     public LinkedList<String> Order() {
         LinkedList<String> order = new LinkedList<>();
         HashSet<String> visited = new HashSet<>();
@@ -54,6 +83,12 @@ public class Graph {
         return order;
     }
 
+    /***
+     * Recursive modified BFS.
+     * @param order Order of visited vertexes.
+     * @param visited Set of visited vertexes (to check existence faster).
+     * @param toVisit List of vertexes to visit.
+     */
     private void BFS(LinkedList<String> order, HashSet<String> visited, LinkedList<String> toVisit) {
         if (toVisit.isEmpty()) {
             return;

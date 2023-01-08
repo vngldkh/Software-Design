@@ -17,10 +17,10 @@ public class Graph {
             return;
         }
         if (!vertexPool.containsKey(from)) {
-            return;
+            vertexPool.put(from, new Vertex(from));
         }
         if (!vertexPool.containsKey(to)) {
-            return;
+            vertexPool.put(to, new Vertex(to));
         }
         var departure = vertexPool.get(from);
         var destination = vertexPool.get(to);

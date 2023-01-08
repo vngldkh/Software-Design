@@ -43,6 +43,10 @@ public class Graph {
         if (cycled) {
             return;
         }
+        if (Objects.equals(from, to)) {
+            cycled = true;
+            return;
+        }
         if (!vertexPool.containsKey(from)) {
             vertexPool.put(from, new Vertex(from));
         }

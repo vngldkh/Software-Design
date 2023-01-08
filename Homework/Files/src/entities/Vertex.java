@@ -40,6 +40,9 @@ final class Vertex {
     boolean HasAncestors() {
         return !ancestors.isEmpty();
     }
+    boolean HasChildren() {
+        return !children.isEmpty();
+    }
 
     @Override
     public int hashCode() {

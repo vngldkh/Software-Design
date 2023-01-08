@@ -75,10 +75,4 @@ public class Graph {
         order.addLast(currentVertex);
         BFS(order, visited, toVisit);
     }
-
-    private void Reverse(ArrayList<String> list) {
-        for(int i = 0, j = list.size() - 1; i < j; i++) {
-            list.add(i, list.remove(j));
-        }
-    }
 }

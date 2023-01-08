@@ -36,7 +36,7 @@ public class Reader {
         return files;
     }
 
-    static final Pattern pattern = Pattern.compile("^require '.*'[ \t\n]*$");
+    static final Pattern pattern = Pattern.compile("^[ \\t\\n]*require ‘(.*)’[ \\t\\n]*$");
 
     private void listAllFiles(File currentFile, ArrayList<entities.FileInfo> list)
             throws NullPointerException, IOException {
@@ -51,7 +51,7 @@ public class Reader {
                     content.append(line).append('\n');
                     Matcher matcher = pattern.matcher(line);
                     if (matcher.matches()) {
-                        dependencies.add(line.substring(9, line.lastIndexOf('\'')));
+                        dependencies.add(matcher.group(1).replace('/', '\\'));
                     }
                 });
                 stream.close();

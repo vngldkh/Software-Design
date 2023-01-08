@@ -1,6 +1,6 @@
 package entities;
 
-import console.Reader;
+import system.Reader;
 
 import java.util.ArrayList;
 import java.util.HashMap;

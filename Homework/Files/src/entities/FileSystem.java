@@ -28,6 +28,11 @@ public class FileSystem {
             return;
         }
         SetUpGraph();
+        correct = !graph.Cycled();
+        if (!correct) {
+            ExceptionMessages.Message(2);
+            return;
+        }
         order = graph.Order();
     }
 

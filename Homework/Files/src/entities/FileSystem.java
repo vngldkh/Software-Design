@@ -10,6 +10,7 @@ import java.util.Map;
 public class FileSystem {
     private final Reader reader;
     private final Graph graph;
+    private ArrayList<String> order;
     private final HashMap<String, FileInfo> filesDictionary;
     private boolean correct;
 
@@ -21,14 +22,15 @@ public class FileSystem {
         if (!correct) {
             return;
         }
-        listAllFiles();
+        ListAllFiles();
         if (!correct) {
             return;
         }
-        setUpGraph();
+        SetUpGraph();
+        order = graph.Order();
     }
 
-    private void listAllFiles() {
+    private void ListAllFiles() {
         var files = reader.listAllFiles();
         correct = reader.IsCorrect();
         if (!correct) {
@@ -39,8 +41,9 @@ public class FileSystem {
         }
     }
 
-    private void setUpGraph() {
+    private void SetUpGraph() {
         for (Map.Entry<String, FileInfo> pair : filesDictionary.entrySet()) {
+            graph.Add(pair.getKey());
             for (String child : pair.getValue().dependencies()) {
                 if (filesDictionary.containsKey(child)) {
                     graph.Add(pair.getKey(), child);
@@ -55,11 +58,18 @@ public class FileSystem {
     }
 
     public String MakeText() {
-        ArrayList<String> order = graph.Order();
         StringBuilder text = new StringBuilder();
         for (String fileName : order) {
             text.append(filesDictionary.get(fileName).content());
         }
         return text.toString();
+    }
+
+    public ArrayList<String> GetOrder() {
+        return order;
+    }
+
+    public boolean IsCorrect() {
+        return correct;
     }
 }

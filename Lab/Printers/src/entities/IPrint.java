@@ -1,5 +1,5 @@
 package entities;
 
-public interface Printer {
+public interface IPrint {
     void print(String text);
 }

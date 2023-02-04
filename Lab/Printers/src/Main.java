@@ -6,7 +6,7 @@ public class Main {
     static Scanner scn = new Scanner(System.in);
 
     public static void main(String[] args) {
-        RemotePrint remotePrint = new RemotePrint(new NewConsolePrinter());
+        RemotePrint remotePrint = new RemotePrint(new NewConsoleIPrint());
         boolean flag;
         do {
             System.out.println("Select the preferred option:");
@@ -32,7 +32,7 @@ public class Main {
         return scn.nextLine();
     }
 
-    private static Printer choosePrinter() {
+    private static IPrint choosePrinter() {
         System.out.println("Select the printer:");
         System.out.println("1             - File Printer.");
         System.out.println("2             - Old Console Printer.");
@@ -44,21 +44,21 @@ public class Main {
                     System.out.println("Enter the path:");
                     String path = scn.nextLine();
                     try {
-                        var printer = new FilePrinter(path);
+                        var printer = new FileIPrint(path);
                         return printer;
                     } catch (Exception ex) {
-                        return new NewConsolePrinter();
+                        return new NewConsoleIPrint();
                     }
                 }
                 case 2 -> {
-                    return new OldConsolePrinter();
+                    return new OldConsoleIPrint();
                 }
                 default -> {
-                    return new NewConsolePrinter();
+                    return new NewConsoleIPrint();
                 }
             }
         } catch (Exception ex) {
-            return new NewConsolePrinter();
+            return new NewConsoleIPrint();
         }
     }
 }

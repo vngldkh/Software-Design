@@ -1,17 +1,17 @@
 package entities;
 
 public class RemotePrint {
-    private Printer printer;
+    private IPrint IPrint;
 
-    public RemotePrint(Printer printer) {
-        this.printer = printer;
+    public RemotePrint(IPrint IPrint) {
+        this.IPrint = IPrint;
     }
 
-    public void setPrinter(Printer printer) {
-        this.printer = printer;
+    public void setPrinter(IPrint IPrint) {
+        this.IPrint = IPrint;
     }
 
     public void print(String text) {
-        printer.print(text);
+        IPrint.print(text);
     }
 }

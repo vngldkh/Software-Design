@@ -3,10 +3,10 @@ package entities;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FilePrinter implements Printer {
+public class FileIPrint implements IPrint {
     String path;
 
-    public FilePrinter(String path) {
+    public FileIPrint(String path) {
         this.path = path;
     }
 

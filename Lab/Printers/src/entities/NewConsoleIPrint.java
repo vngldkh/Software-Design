@@ -1,7 +1,7 @@
 package entities;
 
-public class NewConsolePrinter implements Printer {
-    public NewConsolePrinter() { }
+public class NewConsoleIPrint implements IPrint {
+    public NewConsoleIPrint() { }
 
     @Override
     public void print(String text) {

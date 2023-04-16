@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2f4f967e-ed94-4342-857c-ab5e4da489fc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/CellInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/CellInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Computer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Computer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Console.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Console.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Coords.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Coords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/EasyComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/EasyComputer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/Human.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/ProfessionalComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Homework/Reversi/out/production/Reversi/ProfessionalComputer.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OVh4a9V7PjnOuMh9MnrK6LHV8N" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Programming/Java/Java/Seminar_Homeworks/Seminar_02/Task"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f4f967e-ed94-4342-857c-ab5e4da489fc" name="Changes" comment="" />
+      <created>1681651465724</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681651465724</updated>
+      <workItem from="1681651467123" duration="50000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
